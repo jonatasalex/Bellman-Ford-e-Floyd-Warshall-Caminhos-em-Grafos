@@ -101,7 +101,7 @@ def bellman_ford_passo_a_passo(grafo, no_inicial):
             peso_aresta = dados_aresta['weight']
 
             if distancias_minimas[no_origem] != float('inf') and distancias_minimas[no_origem] + peso_aresta < distancias_minimas[no_destino]:
-                distancias_minimas_anteriores = distancias_minimas.copy()
+                # distancias_minimas_anteriores = distancias_minimas.copy()
                 no_predecessor_anterior = no_predecessor.copy()
                 
                 distancias_minimas[no_destino] = distancias_minimas[no_origem] + peso_aresta
