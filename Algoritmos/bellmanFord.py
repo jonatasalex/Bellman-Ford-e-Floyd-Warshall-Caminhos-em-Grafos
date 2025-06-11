@@ -71,7 +71,7 @@ def bellman_ford_passo_a_passo(grafo, no_inicial):
         
         nx.draw_networkx_edge_labels(grafo, posicoes_dos_nos, ax=ax, edge_labels=rotulos_retos, font_size=12)
 
-        for v, u in arestas_em_arco:
+        for u, v in arestas_em_arco:
             pos_u, pos_v = np.array(posicoes_dos_nos[u]), np.array(posicoes_dos_nos[v])
             pos_media = (pos_u + pos_v) / 2
             vetor_direcao = pos_v - pos_u
@@ -79,7 +79,7 @@ def bellman_ford_passo_a_passo(grafo, no_inicial):
             vetor_perp_norm = vetor_perp / np.linalg.norm(vetor_perp)
             deslocamento = 0.25
             pos_texto = pos_media + vetor_perp_norm * deslocamento
-            peso = todos_os_pesos[(u, v)]
+            peso = todos_os_pesos[(v, u)]
             ax.text(pos_texto[0], pos_texto[1], str(peso),
                     ha='center', va='center', fontsize=12,
                     bbox=dict(facecolor='white', edgecolor='none', pad=1.0))
